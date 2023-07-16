@@ -1,0 +1,49 @@
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #179541;
+  /* color: white; */
+  border: 1px solid #179541;
+  margin: 0 1rem;
+}
+/* .all{
+  background-color: #aad2b5;
+} */
+.btn:hover {
+  background-color: #179541;
+  border-color: #179541;
+}
+
+.btn--alt {
+  background-color: transparent;
+  color:#179541;
+}
+
+.btn--alt:hover {
+  background-color: #f8dae9;
+}
+
+.modal {
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
+  z-index: 10;
+  position: fixed;
+ background-color: #b6cabb;
+  top: 25vh;
+  left: calc(50% - 15rem);
+  border-radius: 6px;
+  margin-left: 150px;
+  padding: 3rem;
+  text-align: center;
+  width: 25rem;
+ 
+  
+ 
+}
+.text{
+  color: #196f30;
+  padding-bottom: 10px;
+  padding-top: 20px;
+
+}

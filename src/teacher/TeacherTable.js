@@ -4,15 +4,17 @@ import { useDispatch } from "react-redux";
 import { fetchTeachers } from "./teacherSlice";
 import classes from './TeacherForm.module.css'
 
+
 //Datatable Modules
 import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
+import CreateTeacherButton from "./CreateTeacherButton";
 
 const TeacherTable = () => {
   const dispatch = useDispatch();
 
-  const text = `m-0 font-weight-bold text-secondary text-center ${classes.text}`;
+  const text = `m-0 font-weight-bold text-center ${classes.text}`;
 
   useEffect(() => {
     dispatch(fetchTeachers());
@@ -28,8 +30,10 @@ const TeacherTable = () => {
     <div class="content-wrapper">
     <div className="MainDiv">
       <div class="text-center">
-        <h1 className={text}> Applicant List</h1>
+        <h1 className={text}> Teacher List</h1>
       </div>
+      <br />
+     <CreateTeacherButton />
       <div className="container">
         <br />
         <br />
@@ -48,6 +52,7 @@ const TeacherTable = () => {
               <th>Nrc</th>
               <th>DateOfBirth</th>
               <th>Gender</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -64,6 +69,7 @@ const TeacherTable = () => {
               <th>Nrc</th>
               <th>DateOfBirth</th>
               <th>Gender</th>
+              <th>Actions</th>
             </tr>
           </tfoot>
         </table>
