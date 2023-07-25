@@ -21,7 +21,7 @@ function cancelHandler() {
 }
 
 function confirmHandler() {
-    dispatch(deleteTeacher({id:props.id})).unwrap()
+    dispatch(deleteTeacher(props.id)).unwrap()
     setModalOpen(false)
 }
 
@@ -31,13 +31,15 @@ function confirmHandler() {
    <tr>
     <td>{props.id}</td>
     <td>{props.fullname}</td>
-    <td>{props.phno}</td>
-    <td>{props.username}</td>
-    <td>{props.qualification}</td>
+    {/* <td>{props.phno}</td>
+    <td>{props.username}</td> */}
+    {/* <td>{props.qualification}</td> */}
     <td>{props.position}</td>
-    <td>{props.nrc}</td>
-    <td>{props.dob}</td>
-    <td>{props.gender}</td>
+    {/* <td>{props.nrc}</td> */}
+    {/* <td>{props.dob}</td> */}
+    {/* <td>{props.gender}</td> */}
+    <td><Link to={`/teacher/${props.id}`} style={{textDecoration : 'none'}} className="fw-bold text-success">View Detail</Link></td>
+
     <td><Link to={`/teacher/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
            <Link  type='button' onClick={deleteHandler} ><i class="ms-3 fas fa-trash fa-lg" style={{color:"green"}}></i></Link>
       </td>

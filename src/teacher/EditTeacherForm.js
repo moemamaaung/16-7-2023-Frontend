@@ -12,14 +12,14 @@ const EditTeacherForm = () => {
     const teachers = useSelector((state)=>selectTeacherById(state,Number(teacherId))) 
     console.log(teachers)
 
-    const [ id,setId ] = useState(teachers.id)
+    const [ id ] = useState(teachers.id)
     const [ fullname,setFullname] = useState(teachers.fullname)
     const [ phno,setPhno] = useState(teachers.phno)
     const [ username,setUsername] = useState(teachers.username)
-    const [ qualification,setQualification] = useState(teachers.qualification)
+    // const [ qualification,setQualification] = useState(teachers.qualification)
     const [ position,setPosition ] = useState(teachers.position)
     const [ nrc,setNrc ] = useState(teachers.nrc)
-    const [ dob,setDob ] = useState(teachers.dob)
+   // const [ dob,setDob ] = useState(teachers.dob)
     const [gender,setGender] = useState(teachers.gender)
   
     const [updateRequestStatus, setUpdateRequestStatus] = useState('idle')
@@ -27,13 +27,13 @@ const EditTeacherForm = () => {
     const onFullnameChange = e => setFullname(e.target.value)
     const onPhnoChange = e => setPhno(e.target.value)
     const onUsernameChange = e => setUsername(e.target.value)
-    const onQualificationChange = e => setQualification(e.target.value)
+    // const onQualificationChange = e => setQualification(e.target.value)
     const onPositionChange = e => setPosition(e.target.value)
     const onNrcChange = e => setNrc(e.target.value)
-    const onDobChange = e => setDob(e.target.value)
+    // const onDobChange = e => setDob(e.target.value)
     const onGenderChange = e => setGender(e.target.value)
     
-    const canSave = [id,fullname,phno,username,qualification,position,nrc,dob,gender].every(Boolean) && updateRequestStatus === 'idle'
+    const canSave = [id,fullname,phno,username,position,nrc,gender].every(Boolean) && updateRequestStatus === 'idle'
   
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -51,10 +51,10 @@ const EditTeacherForm = () => {
               fullname,
               phno,
               username,
-              qualification,
+              // qualification,
               position,
               nrc,
-              dob,
+             // dob,
               gender
     
             })
@@ -68,10 +68,10 @@ const EditTeacherForm = () => {
         setFullname('')
         setPhno('')
         setUsername('')
-        setQualification('')
+        // setQualification('')
         setPosition('')
         setNrc('')
-        setDob('')
+        // setDob('')
         setGender('')
   
         navigate('/allteachers')
@@ -83,7 +83,11 @@ const EditTeacherForm = () => {
     <div class="content-wrapper">
       <div className={classes.formboldformwrapper}>
         <form className={classes.form} onSubmit={onSubmit}>
-          <p className={classes.title}>Edit Teacher</p>
+          <p className={classes.title}>Update Teacher</p>
+          <label>
+              <input type="text" className={classes.input} value={id}  />
+              <span>Id</span>
+            </label>
           <div className={classes.flex}>
             <label>
               <input type="text" className={classes.input} value={fullname} onChange={onFullnameChange} />
@@ -100,10 +104,10 @@ const EditTeacherForm = () => {
             <span>Email</span>
           </label>
 
-          <label>
+          {/* <label>
             <input type="text" className={classes.input} value={qualification} onChange={onQualificationChange}/>
             <span>Qualification</span>
-          </label>
+          </label> */}
 
           <label>
             <input type="text" className={classes.input} value={position} onChange={onPositionChange}/>
@@ -115,10 +119,10 @@ const EditTeacherForm = () => {
             <span>NRC</span>
           </label>
 
-          <label>
+          {/* <label>
             <input type="date" className={classes.input} value={dob} onChange={onDobChange}/>
             <span>Date Of Birth</span>
-          </label>
+          </label> */}
 
           <div>
           <select
@@ -134,7 +138,7 @@ const EditTeacherForm = () => {
 
         <center>
             <button className={classes.send}>
-              UPDATE
+            <i class="mdi mdi-file-check btn-icon-prepend"></i> UPDATE
              
             </button>
             </center>

@@ -11,10 +11,10 @@ const TeacherForm = () => {
   const [ fullname,setFullname] = useState('')
   const [ phno,setPhno] = useState('')
   const [ username,setUsername] = useState('')
-  const [ qualification,setQualification] = useState('')
+  // const [ qualification,setQualification] = useState('')
   const [ position,setPosition ] = useState('')
   const [ nrc,setNrc ] = useState('')
-  const [ dob,setDob ] = useState('')
+  // const [ dob,setDob ] = useState('')
   const [gender,setGender] = useState('')
 
   const [addRequestStatus, setAddRequestStatus] = useState('idle')
@@ -22,13 +22,13 @@ const TeacherForm = () => {
   const onFullnameChange = e => setFullname(e.target.value)
   const onPhnoChange = e => setPhno(e.target.value)
   const onUsernameChange = e => setUsername(e.target.value)
-  const onQualificationChange = e => setQualification(e.target.value)
+  // const onQualificationChange = e => setQualification(e.target.value)
   const onPositionChange = e => setPosition(e.target.value)
   const onNrcChange = e => setNrc(e.target.value)
-  const onDobChange = e => setDob(e.target.value)
+  // const onDobChange = e => setDob(e.target.value)
   const onGenderChange = e => setGender(e.target.value)
   
-  const canSave = [fullname,phno,username,qualification,position,nrc,dob,gender].every(Boolean) && addRequestStatus === 'idle'
+  const canSave = [fullname,phno,username,position,nrc,gender].every(Boolean) && addRequestStatus === 'idle'
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -45,10 +45,10 @@ const TeacherForm = () => {
             fullname,
             phno,
             username,
-            qualification,
+            // qualification,
             position,
             nrc,
-            dob,
+            // dob,
             gender
   
           })
@@ -62,10 +62,10 @@ const TeacherForm = () => {
       setFullname('')
       setPhno('')
       setUsername('')
-      setQualification('')
+      // setQualification('')
       setPosition('')
       setNrc('')
-      setDob('')
+      // setDob('')
       setGender('')
 
       navigate('/allteachers')
@@ -80,7 +80,7 @@ const TeacherForm = () => {
         <div className={classes.formboldformwrapper}>
           <form className={classes.form} onSubmit={onSubmit}>
             <p className={classes.title}>Create Teacher</p>
-            <div className={classes.flex}>
+            {/* <div className={classes.flex}> */}
               <label>
                 <input type="text" className={classes.input} value={fullname} onChange={onFullnameChange} />
                 <span>Fullname</span>
@@ -89,17 +89,17 @@ const TeacherForm = () => {
                 <input type="text" className={classes.input} value={phno} onChange={onPhnoChange}/>
                 <span>Phno</span>
               </label>
-            </div>
+            {/* </div> */}
 
             <label>
               <input type="email" className={classes.input} value={username} onChange={onUsernameChange}/>
               <span>Email</span>
             </label>
-
+{/* 
             <label>
               <input type="text" className={classes.input} value={qualification} onChange={onQualificationChange}/>
               <span>Qualification</span>
-            </label>
+            </label> */}
 
             <label>
               <input type="text" className={classes.input} value={position} onChange={onPositionChange}/>
@@ -111,10 +111,10 @@ const TeacherForm = () => {
               <span>NRC</span>
             </label>
 
-            <label>
+            {/* <label>
               <input type="date" className={classes.input} value={dob} onChange={onDobChange}/>
               <span>Date Of Birth</span>
-            </label>
+            </label> */}
 
             <div>
             <select
@@ -130,7 +130,7 @@ const TeacherForm = () => {
 
           <center>
               <button className={classes.send}>
-                SEND
+              <i class="mdi mdi-file-check btn-icon-prepend"></i> Create
                
               </button>
               </center>

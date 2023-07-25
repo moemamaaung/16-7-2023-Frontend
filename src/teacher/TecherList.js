@@ -15,13 +15,13 @@ const TecherList = () => {
       <TeacherItem 
       id = { teacher.id}
       fullname = { teacher.fullname}
-      phno = { teacher.phno}
-      username = { teacher.username}
-      qualification = {teacher.qualification}
+      // phno = { teacher.phno}
+      // username = { teacher.username}
+      // qualification = {teacher.qualification}
       position = { teacher.position}
-      nrc = { teacher.nrc}
-      dob = {teacher.dob}
-      gender = {teacher.gender}
+      // nrc = { teacher.nrc}
+      // dob = {teacher.dob}
+      // gender = {teacher.gender}
       />
     )
   );

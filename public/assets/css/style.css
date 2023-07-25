@@ -14289,3 +14289,22 @@ dl {
     color: #b1b1b1; }
 
 /*# sourceMappingURL=style.css.map */
+.card1{
+  background: #b9cbe2;
+}
+
+.card2{
+  background: #b9e7dc;
+}
+
+.card3{
+  background:  #e7b9c1;
+}
+
+.card4{
+  background:  #b6e0b0;
+}
+.card:hover{
+  transform: scale(1.1, 1.1);
+  
+}

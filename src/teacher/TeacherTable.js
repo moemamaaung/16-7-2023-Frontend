@@ -43,15 +43,15 @@ const TeacherTable = () => {
         >
           <thead>
             <tr>
-              <th>ID</th>
+            <th>ID</th>
               <th>Name</th>
-              <th>Phno</th>
-              <th>Username</th>
-              <th>Qualification</th>
+              {/* <th>Phno</th>
+              <th>Username</th> */}
+              {/* <th>Qualification</th> */}
               <th>Position</th>
-              <th>Nrc</th>
-              <th>DateOfBirth</th>
-              <th>Gender</th>
+              {/* <th>Nrc</th> */}
+              {/* <th>DateOfBirth</th> */}
+              <th>Details</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -62,13 +62,13 @@ const TeacherTable = () => {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Phno</th>
-              <th>Username</th>
-              <th>Qualification</th>
+              {/* <th>Phno</th>
+              <th>Username</th> */}
+              {/* <th>Qualification</th> */}
               <th>Position</th>
-              <th>Nrc</th>
-              <th>DateOfBirth</th>
-              <th>Gender</th>
+              {/* <th>Nrc</th> */}
+              {/* <th>DateOfBirth</th> */}
+              <th>Details</th>
               <th>Actions</th>
             </tr>
           </tfoot>
