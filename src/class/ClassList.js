@@ -1,19 +1,28 @@
-import React from 'react'
-import { getAllClasses } from './classSlice';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { fetchClasses, getAllClasses } from './classSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import ClassItem from './ClassItem';
 
 const ClassList = () => {
-    const classes = useSelector(getAllClasses)
+
+  const dispatch = useDispatch()
+    const yearClasses = useSelector(getAllClasses)
+    console.log("year class"+yearClasses)
+
+
+  
+    useEffect(() => {
+      dispatch(fetchClasses());
+    }, );
 
     let content;
   
-    content = classes.map(
+    content = yearClasses.map(
       (c) =>(
         <ClassItem 
         id = { c.id}
         codeNo ={c.codeNo}
-        className = { c.className}
+        name = { c.name}
        
         />
       )

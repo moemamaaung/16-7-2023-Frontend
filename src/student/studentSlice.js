@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 const GET_ALL_STUDENTS ='http://localhost:8585/api/student/all'
-const CREATE_STUDENTS = 'http://localhost:8585/api/student/create'
-const EDIT_STUDENTS = 'http://localhost:8585/api/student/update'
+const CREATE_STUDENTS = 'http://localhost:8585/api/student/create/'
+const EDIT_STUDENTS = 'http://localhost:8585/api/student/update/'
 const DELETE_STUDENTS = 'http://localhost:8585/api/student/delete/'
 
 export const fetchStudents = createAsyncThunk('students/fetchStudents',async()=>{
@@ -11,18 +11,19 @@ export const fetchStudents = createAsyncThunk('students/fetchStudents',async()=>
     return response.data
 })
 
-export const createStudents = createAsyncThunk('subjects/createStudents',async(data) =>{
+export const createStudents = createAsyncThunk('students/createStudents',async(data) =>{
     console.log("Data"+data )
-    const response = await axios.post(CREATE_STUDENTS,data)
+    console.log("ClassId"+data.classId)
+    const response = await axios.post(`${CREATE_STUDENTS}${data.classId}`,data)
     return response.data
 })
 
-export const updateStudents = createAsyncThunk('subjects/updateStudents',async (data) =>{
-    const response = await axios.patch(EDIT_STUDENTS,data)
+export const updateStudents = createAsyncThunk('students/updateStudents',async (data) =>{
+    const response = await axios.patch(`${EDIT_STUDENTS}${data.classId}`,data)
     return response.data
 })
 
-export const deleteStudent = createAsyncThunk('subjects/deleteStudents',async (studentId) => {
+export const deleteStudent = createAsyncThunk('students/deleteStudents',async (studentId) => {
     const response = await axios.delete(`${DELETE_STUDENTS}${studentId}`);
     return response.data
  })
@@ -63,6 +64,6 @@ export const studentSlice = createSlice({
 export const getAllStudents = (state) => state.students.students
 export const selectStudentById = (state,studentId) => state.students.students.find(student => student.id === studentId)
 
-export const { addStudent } = studentSlice.actions
+ export const { addStudent } = studentSlice.actions
 
 export default studentSlice.reducer

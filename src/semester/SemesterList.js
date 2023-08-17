@@ -1,11 +1,17 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SemesterItem from "./SemesterItem";
-import { getAllSemesters } from "./semesterSlice";
+import { fetchSemesters, getAllSemesters } from "./semesterSlice";
+import { useEffect } from "react";
 
 const SemesterList = () => {
 
-
+  const dispatch = useDispatch()
     const semesters = useSelector(getAllSemesters)
+    
+    useEffect(() => {
+      dispatch(fetchSemesters());
+    }, [dispatch])
+    
   
     let content;
   

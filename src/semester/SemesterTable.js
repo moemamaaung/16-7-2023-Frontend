@@ -27,7 +27,7 @@ const SemesterTable = () => {
       <div class="content-wrapper">
       <div className="MainDiv">
         <div class="text-center">
-          <h1 className={text}> Semester List</h1>
+          <h1 className='text-center text-success'> Semester List</h1>
         </div>
         <br />
    <CreateSemesterButton />

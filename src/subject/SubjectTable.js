@@ -28,7 +28,7 @@ const SubjectTable = () => {
       <div class="content-wrapper">
         <div className="MainDiv">
           <div class="text-center">
-            <h1 className={text}> Subject List</h1>
+            <h1 className="text-center text-success"> Subject List</h1>
           </div>
           <br />
           <CreateSubjectButton />
@@ -42,8 +42,10 @@ const SubjectTable = () => {
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Teacher Name</th>
+                  <th>Class</th>
                   <th>Code No</th>
-                  <th>Name</th>
+                  <th>Subject Name</th>
                   <th>Actions</th>
                  
                 </tr>
@@ -54,8 +56,10 @@ const SubjectTable = () => {
               <tfoot>
                 <tr>
                   <th>ID</th>
+                  <th>Teacher Name</th>
+                  <th>Class</th>
                   <th>Code No</th>
-                  <th>Name</th>
+                  <th>Subject Name</th>
                   <th>Actions</th>
                 </tr>
               </tfoot>

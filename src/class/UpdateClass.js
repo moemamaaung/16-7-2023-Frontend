@@ -13,13 +13,13 @@ const UpdateClass = () => {
 
     const [ id] = useState(classes.id)
     const [ codeNo,setCodeNo] = useState(classes.codeNo)
-    const [ className,setClassName] = useState(classes.className)
+    const [ name,setClassName] = useState(classes.name)
 
     const [updateRequestStatus, setUpdateRequestStatus] = useState('idle')
 
     const onCodeNoChange = e => setCodeNo(e.target.value)
     const onClassNameChange = e => setClassName(e.target.value)
-    const canSave = [id,codeNo,className].every(Boolean) && updateRequestStatus === 'idle'
+    const canSave = [id,codeNo,name].every(Boolean) && updateRequestStatus === 'idle'
 
 
     const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const UpdateClass = () => {
             updateClass({
               id,
               codeNo,
-              className
+              name
               
     
             })
@@ -49,7 +49,7 @@ const UpdateClass = () => {
   
        
   
-        navigate('/allclasses')
+        navigate('/admin/allclasses')
       }
     }
   
@@ -63,10 +63,26 @@ const UpdateClass = () => {
             <input type="text" className={style.input} value={codeNo} onChange={onCodeNoChange}/>
             <span>Code No</span>
           </label>
-          <label>
-            <input type="text" className={style.input} value={className} onChange={onClassNameChange}/>
+          {/* <label>
+            <input type="text" className={style.input} value={name} onChange={onClassNameChange}/>
             <span>ClassName</span>
-          </label>
+          </label> */}
+
+          <div>
+              <select
+                className="form-select"
+                value={name}
+                onChange={onClassNameChange}
+              >
+                <option>Choose Class</option>
+                <option value="FirstYear">FirstYear</option>
+                <option value="SecondYear">SecondYear</option>
+                <option value="ThirdYear">ThirdYear</option>
+                <option value="FourthYear">FourthYear</option>
+                <option value="FifthYear">FifthYear</option>
+
+              </select>
+            </div>
 
 
         <center>

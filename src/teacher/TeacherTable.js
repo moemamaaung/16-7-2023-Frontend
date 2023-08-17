@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import TecherList from "./TecherList";
 import { useDispatch } from "react-redux";
 import { fetchTeachers } from "./teacherSlice";
-import classes from './TeacherForm.module.css'
-
+import classes from "./TeacherForm.module.css";
 
 //Datatable Modules
 import "datatables.net-dt/js/dataTables.dataTables";
@@ -27,57 +26,50 @@ const TeacherTable = () => {
   });
   return (
     <div class="main-panel">
-    <div class="content-wrapper">
-    <div className="MainDiv">
-      <div class="text-center">
-        <h1 className={text}> Teacher List</h1>
-      </div>
-      <br />
-     <CreateTeacherButton />
-      <div className="container">
-        <br />
-        <br />
-        <table
-          id="example"
-          class="display table table-bordered table-hover table-striped"
-        >
-          <thead>
-            <tr>
-            <th>ID</th>
-              <th>Name</th>
-              {/* <th>Phno</th>
-              <th>Username</th> */}
-              {/* <th>Qualification</th> */}
-              <th>Position</th>
-              {/* <th>Nrc</th> */}
-              {/* <th>DateOfBirth</th> */}
-              <th>Details</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <TecherList />
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              {/* <th>Phno</th>
-              <th>Username</th> */}
-              {/* <th>Qualification</th> */}
-              <th>Position</th>
-              {/* <th>Nrc</th> */}
-              {/* <th>DateOfBirth</th> */}
-              <th>Details</th>
-              <th>Actions</th>
-            </tr>
-          </tfoot>
-        </table>
+      <div class="content-wrapper">
+        <div className="MainDiv">
+          <div class="text-center">
+            <h1 className="text-center text-success"> Teacher List</h1>
+          </div>
+          <br />
+          <CreateTeacherButton />
+          <div className="container">
+            <br />
+            <br />
+            <table
+              id="example"
+              class="display table table-bordered table-hover table-striped"
+            >
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  {/* <th>Password</th> */}
+                  <th>Details</th>
+                  <th>Send Email</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <TecherList />
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  {/* <th>Password</th> */}
+                  <th>Details</th>
+                  <th>Send Email</th>
+                  <th>Actions</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-   
   );
 };
 

@@ -51,7 +51,7 @@ const SemesterForm = () => {
       setStartDate('');
       setEndDate('');
 
-      navigate('/allsemesters')
+      navigate('/admin/allsemesters')
     }
   }
 
@@ -64,10 +64,17 @@ const SemesterForm = () => {
           <form className={classes.form} onSubmit={onSubmit}>
             <p className={classes.title}>Create Semester</p>
             
-              <label>
-                <input type="text" className={classes.input} value={name} onChange={onNameChange} />
-                <span>Name</span>
-              </label>
+            <div>
+              <select
+                className="form-select"
+                value={name}
+                onChange={onNameChange}
+              >
+                <option>Choose Semester</option>
+                <option value="SemesterI">SemesterI</option>
+                <option value="SemesterII">SemesterII</option>
+              </select>
+            </div>
             
 
             <label>

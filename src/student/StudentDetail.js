@@ -1,16 +1,25 @@
 import React from 'react'
-import { selectStudentById } from './studentSlice';
+import { fetchStudents, selectStudentById } from './studentSlice';
 import classes from './StudentDetail.module.css'
 import { Link, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchClasses } from '../class/classSlice';
 
 const StudentDetail = () => {
+  
     const { studentId } = useParams();
     console.log(studentId);
     const student = useSelector((state) =>
       selectStudentById(state, Number(studentId))
     );
     console.log(student);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchClasses());
+      dispatch(fetchStudents());
+    }, [dispatch]);
   
     
     return (

@@ -24,6 +24,7 @@ const StudentItem = (props) => {
   return (
     <tr>
     <td>{props.id}</td>
+    <td>{props.yearClass?.name}</td>
     <td>{props.fullname}</td>
     <td>{props.rollno}</td>
     <td>{props.username}</td>
@@ -34,8 +35,8 @@ const StudentItem = (props) => {
     {/* <td>{props.nrc}</td>
     <td>{props.dob}</td>
     <td>{props.gender}</td> */}
-    <td><Link to={`/student/${props.id}`} style={{textDecoration : 'none'}} className="fw-bold text-success">View Detail</Link></td>
-    <td><Link to={`/student/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
+    <td><Link to={`/admin/student/${props.id}`} style={{textDecoration : 'none'}} className="fw-bold text-success">View Detail</Link></td>
+    <td><Link to={`/admin/student/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
      <Link  type='button' onClick={deleteHandler} ><i class="ms-3 fas fa-trash fa-lg" style={{color:"green"}}></i></Link></td>
     
     {isModalOpen && <ConfirmModal onCancel={cancelHandler} onConfirm={confirmHandler} />}

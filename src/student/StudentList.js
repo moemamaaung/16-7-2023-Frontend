@@ -1,10 +1,22 @@
 import React from 'react'
-import { getAllStudents } from './studentSlice';
+import { fetchStudents, getAllStudents } from './studentSlice';
 import StudentItem from './StudentItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchClasses } from '../class/classSlice';
+import { useEffect } from 'react';
 
 const StudentList = () => {
-    const students = useSelector(getAllStudents)
+
+  const dispatch = useDispatch()
+    
+
+    useEffect(()=> {
+      dispatch(fetchStudents());
+      dispatch(fetchClasses())
+   },[dispatch]);
+   
+   const students = useSelector(getAllStudents)
+
 
     let content;
   
@@ -21,6 +33,7 @@ const StudentList = () => {
         nrc = { student.nrc}
         // dob = {student.dob}
         gender = {student.gender}
+        yearClass = {student.yearClass}
         />
       )
     );

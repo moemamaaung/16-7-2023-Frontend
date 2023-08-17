@@ -42,7 +42,7 @@ export const semesterSlice = createSlice({
     extraReducers(builder){
         builder
             .addCase(fetchSemesters.fulfilled,(state,action) =>{
-                console.log("Teahcer"+action.payload)
+                console.log("semester"+action.payload)
                 state.status = "succeeded"
                 state.semesters = action.payload
             })

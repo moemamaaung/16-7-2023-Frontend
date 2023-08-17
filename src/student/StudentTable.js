@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { fetchStudents } from "./studentSlice";
 import CreateStudentButton from "./CreateStudentButton";
 import StudentList from "./StudentList";
+import { fetchClasses } from "../class/classSlice";
 
 const StudentTable = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const StudentTable = () => {
   const text = `m-0 font-weight-bold text-center ${classes.text}`;
 
   useEffect(() => {
+    dispatch(fetchClasses());
     dispatch(fetchStudents());
   }, [dispatch]);
 
@@ -27,7 +29,7 @@ const StudentTable = () => {
       <div class="content-wrapper">
         <div className="MainDiv">
           <div class="text-center">
-            <h1 className={text}> Student List</h1>
+            <h1 className="text-center text-success"> Student List</h1>
           </div>
           <br />
           <CreateStudentButton />
@@ -41,6 +43,7 @@ const StudentTable = () => {
               <thead>
                 <tr>
                   <th>ID</th>
+                <th>Class</th>
                   <th>Name</th>
                   <th>Roll No</th>
                   {/* <th>Phno</th>
@@ -60,6 +63,7 @@ const StudentTable = () => {
               <tfoot>
                 <tr>
                   <th>ID</th>
+                  <th>Class</th>
                   <th>Name</th>
                   <th>Roll No</th>
                   {/* <th>Phno</th>

@@ -6,7 +6,7 @@ const CreateSemesterButton = () => {
 
   return (
     <React.Fragment>
-      <Link to="/create-semester">
+      <Link to="/admin/create-semester">
         <button className={color1}>
           <i class="fas fa-plus fa-sm"></i> Semester
         </button>

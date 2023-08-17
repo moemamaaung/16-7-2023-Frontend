@@ -3,8 +3,8 @@ import axios from "axios";
 
 
 const GET_ALL_SUBJECTS ='http://localhost:8585/api/subject/all'
-const CREATE_SUBJECTS = 'http://localhost:8585/api/subject/create'
-const EDIT_SUBJECTS = 'http://localhost:8585/api/subject/update'
+const CREATE_SUBJECTS = 'http://localhost:8585/api/subject/create/'
+const EDIT_SUBJECTS = 'http://localhost:8585/api/subject/update/'
 const DELETE_SUBJECTS = 'http://localhost:8585/api/subject/delete/'
 
 export const fetchSubjects = createAsyncThunk('subjects/fetchSubjects',async()=>{
@@ -14,12 +14,12 @@ export const fetchSubjects = createAsyncThunk('subjects/fetchSubjects',async()=>
 
 export const createSubjects = createAsyncThunk('subjects/createSubjects',async(data) =>{
     console.log("Data"+data )
-    const response = await axios.post(CREATE_SUBJECTS,data)
+    const response = await axios.post(`${CREATE_SUBJECTS}${data.userId}/${data.classId}`,data)
     return response.data
 })
 
 export const updateSubjects = createAsyncThunk('subjects/updateSubjects',async (data) =>{
-    const response = await axios.patch(EDIT_SUBJECTS,data)
+    const response = await axios.patch(`${EDIT_SUBJECTS}${data.userId}/${data.classId}`,data)
     return response.data
 })
 

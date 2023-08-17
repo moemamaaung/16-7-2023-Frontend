@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { selectStudentById, updateStudents } from './studentSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import classes from '../teacher/TeacherForm.module.css'
+import { fetchClasses, getAllClasses } from '../class/classSlice'
 
 const EditStudentForm = () => {
 
@@ -11,8 +12,12 @@ const EditStudentForm = () => {
     const students = useSelector((state)=>selectStudentById(state,Number(studentId))) 
     console.log(students)
 
+   
+   
+
     const [id ] = useState(students.id)
     const [ fullname,setFullname] = useState(students.fullname)
+    const [classId, setClassId] = useState(students.yearClass.id)
     const [ rollno,setRollno] = useState(students.rollno)
     const [ phno,setPhno] = useState(students.phno)
     const [ address,setAddress ] = useState(students.address)
@@ -31,13 +36,23 @@ const EditStudentForm = () => {
     const onUsernameChange = e => setUsername(e.target.value)
     // const onFathernameChange = e => setFathername(e.target.value)
     const onNrcChange = e => setNrc(e.target.value)
+    const onClassIdChange = e => setClassId(e.target.value)
     // const onDobChange = e => setDob(e.target.value)
     const onGenderChange = e => setGender(e.target.value)
     
-    const canUpdate = [id,fullname,rollno,phno,address,username,nrc,gender].every(Boolean) && updateRequestStatus === 'idle'
+    const canUpdate = [id,fullname,rollno,phno,address,username,nrc,gender,classId].every(Boolean) && updateRequestStatus === 'idle'
   
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    useEffect(() => {
+      dispatch(fetchClasses())
+      
+      
+    },[])
+  
+    const yearClasses = useSelector(getAllClasses)
+    console.log("Class"+yearClasses)
   
     const onSubmit = (event) => {
       event.preventDefault();
@@ -57,7 +72,8 @@ const EditStudentForm = () => {
               // fathername,
               nrc,
               // dob,
-              gender
+              gender,
+              classId
     
             })
             )
@@ -77,7 +93,7 @@ const EditStudentForm = () => {
         // setDob('')
         setGender('')
   
-        navigate('/allstudents')
+        navigate('/admin/allstudents')
       }
     }
   
@@ -89,10 +105,31 @@ const EditStudentForm = () => {
           <div className={classes.formboldformwrapper}>
             <form className={classes.form} onSubmit={onSubmit}>
               <p className={classes.title}>Update Student</p>
-              <label>
-                  <input type="text" className={classes.input} value={id}  />
-                  <span>Fullname</span>
-                </label>
+              <div className={classes.inputGroup}>
+                                    <div className={classes.inputBox}>
+                                    <select
+                  className={classes.name}
+                  value={classId}
+                  onChange={onClassIdChange}
+
+                >
+                  <option value="">Choose Class</option>
+
+                  {yearClasses.map((year) => (
+
+                    <option key={year.id}
+                      value={year.id}
+                   
+                    >
+                      <span> {year.name} </span>
+                    </option>
+                  ))}
+
+                </select>
+
+                                    </div>
+                                </div>
+      
               <div className={classes.flex}>
              
                 <label>

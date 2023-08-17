@@ -27,9 +27,9 @@ function confirmHandler() {
     <tr>
     <td>{props.id}</td>
     <td>{props.codeNo}</td>
-    <td>{props.className}</td>
+    <td>{props.name}</td>
     
-    <td><Link to={`/class/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
+    <td><Link to={`/admin/class/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
            <Link  type='button' onClick={deleteHandler} ><i class="ms-3 fas fa-trash fa-lg" style={{color:"green"}}></i></Link>
       </td>
 

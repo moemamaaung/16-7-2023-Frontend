@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ConfirmModal from '../utility/ConfirmModal'
-import { deleteTeacher } from './teacherSlice'
+import { deleteTeacher, updateStatus, updateTeachers } from './teacherSlice'
 import { useState } from 'react'
 import { useDispatch } from "react-redux";
+import classes from '../teacher/TeacherForm.module.css'
 
  
 
@@ -24,6 +25,47 @@ function confirmHandler() {
     dispatch(deleteTeacher(props.id)).unwrap()
     setModalOpen(false)
 }
+console.log(props)
+console.log("Status"+props.status)
+
+const funDisabled = () => {
+  if (props.status === 'Sent') {
+    return true
+  } else if (props.status === 'Pending') {
+    return false
+  }
+}
+
+function insertConfirmHandler(){
+
+ 
+  //   updateTeachers({
+  //     id:props.id,
+  //     fullname:props.fullname,
+  //     password:props.password,
+  //     phno:props.phno,
+  //     username:props.username,
+  //     position:props.position,
+  //     nrc:props.nrc,
+  //     gender:props.gender,
+  //     status:props.status
+  // })
+  
+  dispatch( 
+      updateStatus({
+              id:props.id,
+              fullname:props.fullname,
+              password:props.password,
+              phno:props.phno,
+              username:props.username,
+              position:props.position,
+              nrc:props.nrc,
+              gender:props.gender,
+              status:props.status
+
+      })
+  )
+}
 
 
 
@@ -31,18 +73,24 @@ function confirmHandler() {
    <tr>
     <td>{props.id}</td>
     <td>{props.fullname}</td>
-    {/* <td>{props.phno}</td>
-    <td>{props.username}</td> */}
-    {/* <td>{props.qualification}</td> */}
-    <td>{props.position}</td>
-    {/* <td>{props.nrc}</td> */}
-    {/* <td>{props.dob}</td> */}
-    {/* <td>{props.gender}</td> */}
-    <td><Link to={`/teacher/${props.id}`} style={{textDecoration : 'none'}} className="fw-bold text-success">View Detail</Link></td>
+    <td>{props.username}</td>
+    {/* <td>{props.password}</td> */}
+    <td><Link to={`/admin/teacher/${props.id}`} style={{textDecoration : 'none'}} className="fw-bold text-success">View Detail</Link></td>
+    <td>
+      <Link to={`/admin/email/${props.id}`} style={{textDecoration:'none'}}>
+      <button className={classes.b}  onClick={insertConfirmHandler} disabled={funDisabled()}>
+     Email
+        </button>
+      </Link>
+    </td>
 
-    <td><Link to={`/teacher/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
-           <Link  type='button' onClick={deleteHandler} ><i class="ms-3 fas fa-trash fa-lg" style={{color:"green"}}></i></Link>
-      </td>
+    <td>
+      <Link to={`/admin/teacher/update/${props.id}`}  ><i class="far fa-edit fa-lg" style={{color:"green"}}></i></Link>&nbsp;&nbsp;
+
+      <Link  type='button' onClick={deleteHandler} ><i class="ms-3 fas fa-trash fa-lg" style={{color:"green"}}></i></Link>
+      
+
+    </td>
 
       {isModalOpen && <ConfirmModal onCancel={cancelHandler} onConfirm={confirmHandler} />}
     

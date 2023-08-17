@@ -44,16 +44,14 @@ const Dashboard = () => {
             <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border {">
               <ul class="nav nav-tabs tab-transparent" role="tablist">
                 <li class="nav-item">
-                  <a
+              
+                    <Link to ="/admin/profile" 
                     class="nav-link"
                     id="home-tab"
                     data-toggle="tab"
-                    href="#"
                     role="tab"
-                    aria-selected="true"
-                  >
-                    Profile
-                  </a>
+                    aria-selected="true">Profile</Link>
+                
                 </li>
                 <li class="nav-item">
                   <a
@@ -67,12 +65,7 @@ const Dashboard = () => {
                     Counting
                   </a>
                 </li>
-                {/* <li class="nav-item">
-                <a class="nav-link" id="performance-tab" data-toggle="tab" href="#" role="tab" aria-selected="false"></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="conversion-tab" data-toggle="tab" href="#" role="tab" aria-selected="false">Conversion</a>
-              </li> */}
+              
               </ul>
               <div class="d-md-block d-none">
                 <a href="#" class="text-light p-1">
@@ -93,7 +86,7 @@ const Dashboard = () => {
                 <div class="row">
                   <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card ">
                     <div class="card card1">
-                      <Link to="/allteachers" class="card-body text-center" style={{textDecoration:"none"}}>
+                      <Link to="/admin/teacher" class="card-body text-center" style={{textDecoration:"none"}}>
                         <h5 class="mb-2 text-dark font-weight-normal">
                           Teachers
                         </h5>
@@ -113,7 +106,7 @@ const Dashboard = () => {
                   </div>
                   <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                     <div class="card card2">
-                    <Link to="/allstudents" class="card-body text-center" style={{textDecoration:"none"}}>
+                    <Link to="/admin/allstudents" class="card-body text-center" style={{textDecoration:"none"}}>
                         <h5 class="mb-2 text-dark font-weight-normal">
                           Students
                         </h5>
@@ -133,7 +126,7 @@ const Dashboard = () => {
                   </div>
                   <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                     <div class="card card3">
-                    <Link to="/allsubjects" class="card-body text-center" style={{textDecoration:"none"}}>
+                    <Link to="/admin/allsubjects" class="card-body text-center" style={{textDecoration:"none"}}>
                         <h5 class="mb-2 text-dark font-weight-normal">
                           Subjects
                         </h5>
@@ -154,7 +147,7 @@ const Dashboard = () => {
 
                   <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                     <div class="card card4">
-                    <Link to="/allclasses" class="card-body text-center" style={{textDecoration:"none"}}>
+                    <Link to="/admin/allclasses" class="card-body text-center" style={{textDecoration:"none"}}>
                         <h5 class="mb-2 text-dark font-weight-normal">
                           Classes
                         </h5>

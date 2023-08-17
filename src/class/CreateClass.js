@@ -4,13 +4,14 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { createClass } from './classSlice'
 import classes from '../teacher/TeacherForm.module.css'
+
 const CreateClass = () => {
   const [codeNo,setCodeNo ] = useState('')
-  const [ className,setClassName ] = useState('')
+  const [ name,setClassName ] = useState('')
   const [addRequestStatus, setAddRequestStatus] = useState('idle')
   const onCodenoChange = e => setCodeNo(e.target.value)
 const onClassNameChange = e=> setClassName(e.target.value)
-const canSave = [codeNo,className].every(Boolean) && addRequestStatus === 'idle'
+const canSave = [codeNo,name].every(Boolean) && addRequestStatus === 'idle'
 const dispatch = useDispatch();
   const navigate = useNavigate()
 
@@ -24,7 +25,7 @@ const dispatch = useDispatch();
           dispatch(
               createClass({
                     codeNo,
-                    className
+                    name
                 
 
               }),
@@ -39,7 +40,7 @@ const dispatch = useDispatch();
     setCodeNo('')
     setClassName('')
 
-      navigate(`/allclasses`)
+      navigate(`/admin/allclasses`)
 }
   }
   return (
@@ -52,10 +53,21 @@ const dispatch = useDispatch();
               <input type="text" className={classes.input} value={codeNo} onChange={onCodenoChange} />
               <span>CodeNo</span>
             </label>
-            <label>
-              <input type="text" className={classes.input} value={className} onChange={onClassNameChange} />
-              <span>ClassName</span>
-            </label>
+            <div>
+              <select
+                className="form-select"
+                value={name}
+                onChange={onClassNameChange}
+              >
+                <option>Choose Class</option>
+                <option value="FirstYear">FirstYear</option>
+                <option value="SecondYear">SecondYear</option>
+                <option value="ThirdYear">ThirdYear</option>
+                <option value="FourthYear">FourthYear</option>
+                <option value="FifthYear">FifthYear</option>
+
+              </select>
+            </div>
  
 
 

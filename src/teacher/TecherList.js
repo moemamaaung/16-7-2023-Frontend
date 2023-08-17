@@ -1,12 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { getAllTeachers } from './teacherSlice'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchTeachers, getAllTeachers } from './teacherSlice'
 import TeacherItem from './TeacherItem'
 
 const TecherList = () => {
 
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(fetchTeachers());
+  
+  // }, );
+
 
   const teachers = useSelector(getAllTeachers)
+  console.log(teachers)
 
   let content;
 
@@ -15,13 +23,15 @@ const TecherList = () => {
       <TeacherItem 
       id = { teacher.id}
       fullname = { teacher.fullname}
-      // phno = { teacher.phno}
-      // username = { teacher.username}
+      username = { teacher.username}
+      password = { teacher.password}
       // qualification = {teacher.qualification}
       position = { teacher.position}
-      // nrc = { teacher.nrc}
+      status = { teacher.status}
+      nrc = { teacher.nrc}
       // dob = {teacher.dob}
-      // gender = {teacher.gender}
+      phno = {teacher.phno}
+      gender = {teacher.gender}
       />
     )
   );
